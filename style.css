@@ -113,6 +113,12 @@ header{
     margin-bottom: 4em;
     margin-top: clamp(1.5em, 5vw ,3.5em);
 }
+@media(min-width: 48em){
+
+    header {
+        margin-bottom: 5em;
+    }
+}
 
 img{
     border-radius: 0.75rem;
