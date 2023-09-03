@@ -110,7 +110,7 @@ svg {
 
 /* General styling */
 header{
-    margin-bottom: 3.5em;
+    margin-bottom: 4em;
     margin-top: clamp(1.5em, 5vw ,3.5em);
 }
 
