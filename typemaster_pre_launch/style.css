@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700;900&display=swap');
+
+:root {
+    --clr-primary-600: hsl(22, 88%, 52%);
+    --clr-primary-300: hsl(22, 100%, 69%);
+    --clr-neutral-900: hsl(220, 50%, 17%);
+    --clr-neutral-700: hsl(221, 23%, 58%);
+    --clr-neutral-300: hsl(198, 28%, 93%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-primary: 'Barlow', sans-serif;
+
+    --ff-body: var(--ff-primary);
+    --ff-heading: var(--ff-primary);
+
+    --fw-body: 500;
+    --fw-button: 700;
+    --fw-heading: 900;
+
+    --fs-400: 1rem;
+    --fs-500: 1.5rem;
+    --fs-700: 2rem;
+    --fs-800: 2.5rem;
+    --fs-900: 3.5rem;
+
+    --fs-body: var(--fs-400);
+    --fs-primary-heading: clamp(var(--fs-800),2.5rem + 2vw ,var(--fs-900));
+    --fs-secondary-heading: var(--fs-700);
+    --fs-thirdly-heading: var(--fs-500);
+
+    --padding-min : clamp(1em, 5vw ,40em);
+}
+
+/*@media (min-width: 48em){*/
+/*    :root {*/
+/*        --fs-primary-heading: var(--fs-900);*/
+/*    }*/
+/*}*/
+
+body {
+    font-size: var(--fs-body);
+    font-family: var(--ff-body);
+    color: var(--clr-neutral-700);
+    overflow-x: hidden ;
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* General styling */
+header{
+    margin-bottom: 3.5em;
+    margin-top: clamp(1.5em, 5vw ,3.5em);
+}
+
+img{
+    border-radius: 0.75rem;
+}
+
+h1, h2, h3 {
+    font-weight: var(--fw-heading);
+    color: var(--clr-neutral-900);
+    text-transform: uppercase;
+}
+h1 {
+    font-size: var(--fs-primary-heading);
+    line-height: 3.5rem;
+}
+h2 {
+    font-size: var(--fs-secondary-heading);
+    line-height: 2rem;
+}
+h3 {
+    font-size: var(--fs-thirdly-heading);
+}
+button
+{
+    padding: 1rem 1.625rem;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-button);
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary-600);
+    border-radius: 0.8rem;
+    border: none;
+}
+button:hover
+{
+    background-color: var(--clr-primary-300);
+}
+button[data-color="secondary"]
+{
+    background-color: var(--clr-neutral-300);
+    color: var(--clr-neutral-900);
+}
+button[data-color="secondary"]:hover
+{
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-100);
+}
+footer {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+/* Utility */
+.container {
+    width: min(calc(100% - 2 * var(--padding-min)) , 1110px);
+    margin-inline: auto;
+}
+.flex{
+    display: flex;
+    gap: 1.5rem;
+}
+.space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.grid-item-center{
+    display: grid;
+    gap: 4em;
+    align-items: center;
+}
+@media (min-width: 35em) {
+    .grid-item-center {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        gap:2em;
+    }
+}
+.hero {
+    margin-bottom: 1.875em;
+    position: relative;
+}
+@media(min-width: 1200px) {
+    .hero::before, .description::before {
+        z-index: 0;
+        content: '';
+        position: absolute;
+        height: 50%;
+        width: calc((100vw - min(calc(100% - 2 * var(--padding-min)), 1110px)) / 2);
+        border-radius: 0.75rem;
+        background-color: #E8EFF2;
+    }
+    .hero::before{
+        top: 0;
+        left: calc(100% + 30px);
+    }
+    .description::before {
+        bottom: 0;
+        right: calc(100% + 30px);
+    }
+}
+.hero-text{
+    height: fit-content;
+}
+.hero-text p {
+    margin-top: 1.5rem;
+}
+.hero-interaction{
+    margin-top: 2.5rem;
+}
+.hero-interaction span {
+    margin-left: clamp(0.5em, 1vw,2.5em);
+    text-transform: uppercase;
+    font-weight: var(--fw-button);
+}
+.hero-img{
+    object-fit: cover;
+    height: 23em;
+    min-width: fit-content;
+    margin-inline: auto;
+}
+@media(min-width:35em){
+    .hero-img{
+        height: 30em;
+    }
+}
+
+/* Description */
+.orange-overlay{
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+.orange-overlay ::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-primary-600);
+    opacity: .6;
+    mix-blend-mode: multiply;
+}
+.description_text{
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    max-width: 265px;
+}
+@media(min-width: 25em){
+    .description_text {
+        text-align: left;
+    }
+}
+.description_img {
+    max-width: 730px;
+    flex: 2.5;
+}
+.description
+{
+    position: relative;
+    justify-content: space-between;
+    margin-bottom: 7rem;
+}
+@media(max-width:48em){
+    .description_text {
+        flex-direction: row;
+        max-width: 100%;
+        align-items: center;
+    }
+    .description {flex-direction: column;
+        gap: 4.75rem;
+    }
+}
+@media(max-width:25em){
+    .description_img {
+        margin-left: calc((var(--padding-min) + 1rem) * -1);
+    }
+    .description_text {
+        flex-direction: column;
+    }
+}
+
+/* Section 3 Advantage */
+.advantages{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    text-align: center;
+    gap:4rem;
+    margin-bottom: 8rem ;
+}
+.advantages-item{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.advantages-icon{
+    width: 4rem;
+    aspect-ratio: 1;
+    background-color: var(--clr-primary-600);
+    display: grid;
+    place-items: center;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
+    margin-inline: auto;
+}
+.advantages-icon img{
+    border-radius: 0;
+}
+@media(min-width: 25em)
+{
+    .advantages{
+        grid-template-columns: repeat(2,1fr);
+        text-align: left;
+    }
+    .advantages-icon{
+        margin-inline: 0;
+    }
+}
+@media(min-width: 48em)
+{
+    .advantages{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+
+
+
