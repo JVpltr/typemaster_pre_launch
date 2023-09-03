@@ -149,6 +149,7 @@ button
 button:hover
 {
     background-color: var(--clr-primary-300);
+    cursor: pointer;
 }
 button[data-color="secondary"]
 {
